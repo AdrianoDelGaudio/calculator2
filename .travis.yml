@@ -1,11 +1,5 @@
 language : java
 jdk:
--openjdk8
-addons:
- sonarcloud:
-  organization: "adrianodelgaudio"
-   token:
-   secure: "2ecede15106f0ceed29bd0415a94641d802deca0"
+-o penjdk8
 script: 
- - andt build
- - sonar-scanner -X
+ - ant build
