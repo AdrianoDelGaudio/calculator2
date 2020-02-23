@@ -1,5 +1,5 @@
 language : java
 jdk:
--o penjdk8
+- openjdk8
 script: 
  - ant build
