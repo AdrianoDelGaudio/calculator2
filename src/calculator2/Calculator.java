@@ -110,6 +110,9 @@ public class Calculator extends Application{
 		MyButton btnEqual = new MyButton("=", cellWidth, cellHeight);
 		grid.add(btnEqual, 3, 6);
 		
+		MyButton btnRad = new MyButton("RAD", cellWidth, cellHeight);
+		grid.add(btnRad,3,7);
+		
 		btn0.setOnAction(new MyHandler(0));
 		btn1.setOnAction(new MyHandler(1));
 		btn2.setOnAction(new MyHandler(2));
@@ -120,6 +123,18 @@ public class Calculator extends Application{
 		btn7.setOnAction(new MyHandler(7));
 		btn8.setOnAction(new MyHandler(8));
 		btn9.setOnAction(new MyHandler(9));
+		
+		btnRad.setOnAction(new EventHandler<ActionEvent>(){
+			@Override
+			public void handle(ActionEvent event) {
+				first = true;
+				operation = 5;
+				String currentText = result.getText();
+				result.setText(currentText + "RAD");
+			}
+		
+			
+		});
 		
 		btnC.setOnAction(new EventHandler <ActionEvent>() {
 
@@ -196,6 +211,9 @@ public class Calculator extends Application{
 					result.setText(String.valueOf((int)resultNumber));
 				} else if (operation == 4) {
 					resultNumber = firstNumber / secondNumber;
+					result.setText(String.valueOf(resultNumber));
+				} else if (operation == 5) {
+					resultNumber =  (float) Math.sqrt( firstNumber); 
 					result.setText(String.valueOf(resultNumber));
 				}
 				first = false;
